@@ -1,3 +1,56 @@
+@use'variaveis';
+@use 'hero';
+
+
+
+
+@mixin title($fontSize: 40px){
+    @include text($fontSize);
+    color: variaveis.$corTextoSecundario;
+
+}
+
+@mixin text($fotSize: 16px){
+    font-size:$fotSize ;
+    line-height: $fotSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: aliceblue;
+    background-color: variaveis.$corDeFundo;
+    font-family: Avenir,sans-serif;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text{
+    @include text;
+}
+.text--small{
+    @include text(12px);
+}
+
+.link-text {
+    @include text(18px);
+    color:variaveis.$corTextoSecundario;
+    text-decoration: underline
+}
+
+
+.title--big{
+    @include title(44px)
+}
+.title--small{
+    @include title(28px)
+}
+.title{
+    @include title;
 }
